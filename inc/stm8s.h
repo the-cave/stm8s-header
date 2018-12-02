@@ -85,6 +85,8 @@
  #define _RAISONANCE_
 #elif defined(__ICCSTM8__)
  #define _IAR_
+#elif defined(__SDCC)
+ #define _SDCC_
 #else
  #error "Unsupported Compiler!"          /* Compiler defines not found */
 #endif
@@ -93,7 +95,7 @@
 /* Comment the line below if you will not use the peripherals drivers.
    In this case, these drivers will not be included and the application code will be
    based on direct access to peripherals registers */
- #define USE_STDPERIPH_DRIVER
+ // #define USE_STDPERIPH_DRIVER
 #endif
 
 /**
@@ -137,8 +139,12 @@
  #else /* STM8S903, STM8S103, STM8S001, STM8S003, STM8S105, STM8AF626x, STM8AF622x */
   /*!< Used with memory Models for code less than 64K */
   #define MEMCPY memcpy
- #endif /* STM8S208 or STM8S207 or STM8S007 or STM8AF62Ax or STM8AF52Ax */ 
-#else /*_IAR_*/
+ #endif /* STM8S208 or STM8S207 or STM8S007 or STM8AF62Ax or STM8AF52Ax */
+#elif defined (_SDCC_)
+ #define FAR  __far
+ #define NEAR __near
+ #define CONST  const
+#elif defined (_IAR_)
  #define FAR  __far
  #define NEAR __near
  #define TINY __tiny
@@ -2730,7 +2736,7 @@ CFG_TypeDef;
  #define trap()                {_asm("trap\n");} /* Trap (soft IT) */
  #define wfi()                 {_asm("wfi\n");}  /* Wait For Interrupt */
  #define halt()                {_asm("halt\n");} /* Halt */
-#else /*_IAR_*/
+#elif defined(_IAR_)
  #include <intrinsics.h>
  #define enableInterrupts()    __enable_interrupt()   /* enable interrupts */
  #define disableInterrupts()   __disable_interrupt()  /* disable interrupts */
