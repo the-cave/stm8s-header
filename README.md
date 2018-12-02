@@ -4,6 +4,22 @@
 
 It is a collection of STM8S/STM8AF header declaration officially offered by STMicroelectronics but with some patch to enable SDCC support.
 
+## Currently supported targets
+
+* STM8S208
+* STM8S207
+* STM8S007
+* STM8AF52Ax
+* STM8AF62Ax
+* STM8S105
+* STM8S005
+* STM8AF626x
+* STM8AF622x
+* STM8S103
+* STM8S003
+* STM8S903
+* STM8S001
+
 ## Why a handful of STM8 SDCC example found over the internet did not use the official headers?
 
 Historically, the library like what you found here is not possible per ST licensing terms. Back then, the patch to support more compilers apart from what ST declared would violate the license. At some point, ST released their libraries in more permissive licensing terms. Now, this is possible, but with some restrictions, please see `LICENSE.md` for more info.
