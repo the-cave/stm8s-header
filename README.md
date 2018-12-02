@@ -2,7 +2,7 @@
 
 ## What is it?
 
-It is a collection of STM8S/STM8AF header declaration officially offered by STMicroelectronics but with some patch to enable SDCC support.
+It is a collection of STM8S/STM8AF header definitions officially offered by STMicroelectronics but with some patch to enable [SDCC](http://sdcc.sourceforge.net/ "Small Device C Compiler") support.
 
 ## Currently supported targets
 
@@ -22,7 +22,10 @@ It is a collection of STM8S/STM8AF header declaration officially offered by STMi
 
 ## Why a handful of STM8 SDCC example found over the internet did not use the official headers?
 
-Historically, the library like what you found here is not possible per ST licensing terms. Back then, the patch to support more compilers apart from what ST declared would violate the license. At some point, ST released their libraries in more permissive licensing terms. Now, this is possible, but with some restrictions, please see `LICENSE.md` for more info.
+Historically, libraries like the one you found here is not possible per ST licensing terms.  
+  
+Back then, the patch to support more compilers apart from the compilers ST officially supported would violate the license set by STMicroelectronics.
+At some point, ST released their libraries under more permissive licensing terms. Now, this is possible, but with some restrictions, please see `LICENSE.md` for more info.
 
 ## Aim of this repository
 
