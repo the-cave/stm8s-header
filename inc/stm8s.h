@@ -2804,6 +2804,11 @@ CFG_TypeDef;
  __interrupt void (a) (void)  
 #endif /* _IAR_ */
 
+#ifdef _SDCC_
+ #define INTERRUPT_HANDLER(a,b) void a() __interrupt(b)
+ #define INTERRUPT_HANDLER_TRAP(a) void a() __trap
+#endif /* _SDCC_ */
+
 /*============================== Interrupt Handler declaration ========================*/
 #ifdef _COSMIC_
  #define INTERRUPT @far @interrupt
