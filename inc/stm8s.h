@@ -2746,6 +2746,39 @@ CFG_TypeDef;
  #define trap()                __trap()               /* Trap (soft IT) */
  #define wfi()                 __wait_for_interrupt() /* Wait For Interrupt */
  #define halt()                __halt()               /* Halt */
+#elif defined(_SDCC_)
+ #define enableInterrupts() \
+  do { \
+   __asm__("rim"); \
+  } while (0) /* enable interrupts */
+ #define disableInterrupts() \
+  do { \
+   __asm__("sim"); \
+  } while (0) /* disable interrupts */
+ #define rim() \
+  do { \
+   __asm__("rim"); \
+  } while (0) /* enable interrupts */
+ #define sim() \
+  do { \
+   __asm__("sim"); \
+  } while (0) /* disable interrupts */
+ #define nop() \
+  do { \
+   __asm__("nop"); \
+  } while (0) /* No Operation */
+ #define trap() \
+  do { \
+   __asm__("trap"); \
+  } while (0) /* Trap (soft IT) */
+ #define wfi() \
+  do { \
+   __asm__("wfi"); \
+  } while (0) /* Wait For Interrupt */
+ #define halt() \
+  do { \
+   __asm__("halt"); \
+  } while (0) /* Halt */
 #endif /*_RAISONANCE_*/
 
 /*============================== Interrupt vector Handling ========================*/
